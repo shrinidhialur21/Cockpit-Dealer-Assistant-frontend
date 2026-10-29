@@ -54,7 +54,7 @@ function Bubble({ role, content }) {
   );
 }
 
-export default function App() {
+export default function App({ onSignOut }) {
   const [vin, setVin] = useState('MA3YPLCSKSJ103467');
   const [tier, setTier] = useState('L1');
   const [messages, setMessages] = useState([]);
@@ -145,6 +145,11 @@ export default function App() {
             disabled={messages.length > 0}
             className="bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-xs font-mono text-white w-56 disabled:opacity-60"
           />
+          {onSignOut && (
+            <button onClick={onSignOut} className="text-xs text-slate-400 hover:text-white border border-slate-700 rounded-lg px-3 py-1.5">
+              Sign out
+            </button>
+          )}
         </div>
       </header>
 
